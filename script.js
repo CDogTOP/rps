@@ -81,7 +81,7 @@ function startGame(rounds) {
     // Check to see if counter variable reached amount of rounds; if yes break and display score/winner, otherwise keep playing
 
     let playAgain = prompt('Would you like to play again? Type Y or N: ');
-    if (playAgain === null) {
+    if (playAgain === null || playAgain.toUpperCase() !== 'Y') {
         return;
     }
     else if (playAgain.toUpperCase() === 'Y') {
@@ -93,7 +93,6 @@ function welcomePlayer() {
     console.clear();
     while (true) {
         let rounds = prompt("HELLO! Welcome to Rock, Paper, Scissors! How many rounds would you like to play?");
-        console.log(rounds === undefined);
         if (rounds === 'quit') {
             break;
         } 
@@ -101,14 +100,14 @@ function welcomePlayer() {
             alert('Please enter a valid value.');
         }
         else {
+            console.log('For the best visual experience, dock the console to the bottom of the viewport!');
             startGame(rounds);
             break;
         }
     }
-    
 }
 
 welcomePlayer();
-    
+console.log('Refresh to play again!');
 
 
