@@ -60,7 +60,7 @@ function startGame(rounds) {
         let userChoice = prompt('Rock, Paper, or Scissors? ');
         if (userChoice === 'quit') {
             finalResult = 'quit';
-            break;
+            return;
         }
         else if (userChoice === null || userChoice === undefined || !options.includes(userChoice)) {
             console.log("You're weird for that, choose something else");
