@@ -119,5 +119,3 @@ function welcomePlayer() {
 
 welcomePlayer();
 console.log('Refresh to play again!');
-
-
