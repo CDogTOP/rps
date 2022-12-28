@@ -62,11 +62,11 @@ function startGame(rounds) {
             finalResult = 'quit';
             return;
         }
-        else if (userChoice === null || userChoice === undefined || !options.includes(userChoice)) {
+        else if (userChoice === null || userChoice === undefined || !options.includes(userChoice.toLowerCase())) {
             console.log("You're weird for that, choose something else");
         }
         else {
-            givePoint(playRound(userChoice, getComputerChoice()));
+            givePoint(playRound(userChoice.toLowerCase(), getComputerChoice()));
             counter++;
         }
     }
