@@ -2,8 +2,8 @@
 function startGame(rounds) {
     // Get computer's choice with function getComputerChoice; returns random choice from options array
     let options = ['rock', 'paper', 'scissors'];
-    let counter = 0; let gameRounds = parseInt(rounds);
-
+    let counter = 0; let gameRounds = rounds;
+    
     function getComputerChoice() {
         let randomChoice = Math.floor(Math.random() * 3);
         return options[randomChoice]
@@ -81,17 +81,31 @@ function startGame(rounds) {
     // Check to see if counter variable reached amount of rounds; if yes break and display score/winner, otherwise keep playing
 
     let playAgain = prompt('Would you like to play again? Type Y or N: ');
-    if (playAgain.toUpperCase() === 'Y') {
+    if (playAgain === null) {
+        return;
+    }
+    else if (playAgain.toUpperCase() === 'Y') {
         welcomePlayer();
     }
 }
 
 function welcomePlayer() {
     console.clear();
-    let rounds = prompt("HELLO! Welcome to Rock, Paper, Scissors! How many rounds would you like to play?");
-    if (Number.isInteger(parseInt(rounds)) || rounds !== 'quit') {
-       startGame(rounds); 
-    }  
+    while (true) {
+        let rounds = prompt("HELLO! Welcome to Rock, Paper, Scissors! How many rounds would you like to play?");
+        console.log(rounds === undefined);
+        if (rounds === 'quit') {
+            break;
+        } 
+        else if (isNaN(rounds) || rounds === undefined || rounds === null || rounds === '') {
+            alert('Please enter a valid value.');
+        }
+        else {
+            startGame(rounds);
+            break;
+        }
+    }
+    
 }
 
 welcomePlayer();
